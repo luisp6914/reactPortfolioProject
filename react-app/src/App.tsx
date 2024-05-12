@@ -1,5 +1,6 @@
 import NavBar from "./components/NavBar";
 import Home from "./components/Home"
+import Message from "./Message";
 
 
 function App() {
