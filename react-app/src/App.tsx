@@ -1,6 +1,6 @@
 import NavBar from "./components/NavBar";
 import Home from "./components/Home"
-import Message from "./Message";
+import About from "./components/About";
 
 
 function App() {
@@ -9,8 +9,11 @@ function App() {
       <div>
         <NavBar></NavBar>
       </div>
-      <div>
+      <div id="home">
         <Home></Home>
+      </div>
+      <div id="about">
+        <About></About>
       </div>
     </>
   );

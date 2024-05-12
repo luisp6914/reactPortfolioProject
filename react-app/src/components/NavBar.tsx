@@ -29,12 +29,12 @@ function NavBar() {
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav">
             {/*Home Tab */}
-            <a className="nav-link active" aria-current="page" href="#">
+            <a className="nav-link active" aria-current="page" href="#home">
               Home
             </a>
 
             {/*About Tab */}
-            <a className="nav-link" href="#">
+            <a className="nav-link" href="#about">
               About
             </a>
 
