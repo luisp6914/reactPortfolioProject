@@ -52,6 +52,22 @@
     width: 100%;
     align-content: center;
 }
+.paragraph{
+    margin-top: 15px;
+}
+.paragraph h3{
+    position: relative;
+    display: inline-block;
+}
+.paragraph h3::after {
+    content: ''; /* Necessary for the pseudo-element to appear */
+    position: absolute; /* Positions relative to the h3 */
+    left: 0; /* Starts from the left edge of the h3 */
+    bottom: 0; /* Aligns to the bottom of the h3 */
+    width: 50%; /* Set this to control the width of the underline */
+    height: 2px; /* Thickness of the underline */
+    background-color: #0D6EFD; /* Color of the underline */
+}
 .skill {
     display: flex;
     align-items: center; /* Aligns items vertically in the center */
@@ -75,7 +91,21 @@
     flex-grow: 1; /* Allows the progress bar to take up the remaining space */
     height: 20px; /* Sets a fixed height for the progress bars */
     width: 100%;
+    background-color: #cde1f8;
 }
+
+/*Projects section*/
+.projectHolder{
+    background-color: #f2f2f2;
+}
+.projects{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.project{}
 
 
 
@@ -99,7 +129,6 @@
         flex-direction: row;
         gap: 300px;
     }
-    
     .profileAndParagraph, .skills {
         flex: 1;  /*This ensures each section takes up half of the available space*/ 
     }
@@ -107,8 +136,12 @@
 
 /* Media query for screens 991px and smaller(width) */
 @media (max-width: 991px) {
-    /*About me section small screens*/
-    .paragraph{
-        margin-top: 2dvh;
-    }
+    
+}
+
+
+/*Animations*/
+@keyframes projects-fade-in {
+    from {opacity: 0;}
+    to {opacity: 1;}
 }

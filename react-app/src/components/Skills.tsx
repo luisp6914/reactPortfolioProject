@@ -5,7 +5,7 @@ import { faDatabase } from "@fortawesome/free-solid-svg-icons";
 function Skills(){
     const skills = [
         {icon: faHtml5, color: '#E34F26', name: 'HTML', progress: 30, years: '3 Years'},
-        {icon: faCss3, color: '#1572B6', name: 'CSS', progress: 25, years: '2.5 Years'},
+        {icon: faCss3, color: '#1572B6', name: 'CSS', progress: 20, years: '2 Years'},
         {icon: faJs, color: '#F0DB4F', name: 'JavaScript', progress: 10, years: '1 Year'},
         {icon: faJava, color: '#007396', name: 'Java', progress: 40, years: '4 Years'},
         {icon: faDatabase, color: '#00758F', name: 'SQL', progress: 20, years: '2 Years'},
@@ -21,21 +21,11 @@ function Skills(){
         <h3>Skills</h3>
         {skills.map((skill, index) => (
           <div key={index} className="skill">
-            <FontAwesomeIcon
-              icon={skill.icon}
-              style={{ fontSize: "35px", color: skill.color }}
-            />
+            <FontAwesomeIcon icon={skill.icon} style={{ fontSize: "35px", color: skill.color }} />
             <div className='textAndBar'>
                 <p>{skill.name}</p>
                 <div className="progress">
-                  <div
-                    className="progress-bar progress-bar-striped progress-bar-animated"
-                    role="progressbar"
-                    aria-valuenow={skill.progress}
-                    aria-valuemin={0}
-                    aria-valuemax={100}
-                    style={{ width: `${skill.progress}%` }}
-                  >
+                  <div className="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow={skill.progress} aria-valuemin={0} aria-valuemax={100} style={{ width: `${skill.progress}%` }}>
                     {skill.years}
                   </div>
                 </div>

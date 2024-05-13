@@ -4,4 +4,4 @@
 # cd react-app
 
 # --To use the server run
-# node dev run
+# npm run dev 

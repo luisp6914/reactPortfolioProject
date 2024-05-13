@@ -1,5 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faL } from "@fortawesome/free-solid-svg-icons";
+import { NavLink } from "react-router-dom";
+import { HashLink } from 'react-router-hash-link';
 
 //PascalCasing for components
 function NavBar() {
