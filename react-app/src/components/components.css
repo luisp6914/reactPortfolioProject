@@ -8,7 +8,11 @@
     justify-content: center;
     align-items: center;
 }
-
+/*Navbar section*/
+.nav-link {
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+}
 /*The home section background img set up*/
 .background-img{
     height: 100dvh;
@@ -17,7 +21,7 @@
     background-size: cover;
     background-position: top;
     display: flex;
-    flex-direction: column; /* Stacks children vertically */
+    flex-direction: column; 
     justify-content: center; /* Centers content vertically */
     align-items: center;     /* Centers content horizontally */
     text-align: center;      /* Centers text within each flex item */
@@ -47,13 +51,18 @@
     display: flex;
     flex-direction: row;
     gap: 10px;
+    
 }
 .profile div{
     width: 100%;
+    
     align-content: center;
 }
 .paragraph{
     margin-top: 15px;
+}
+.paragraph p{
+    font-family: Arial, Helvetica, sans-serif;
 }
 .paragraph h3{
     position: relative;
@@ -184,7 +193,7 @@
 /*Contact section*/
 #contact{
     margin-top: 10rem;
-    margin-bottom: 10rem;
+    margin-bottom: 4rem;
 }
 .contact{
     padding: 3rem;
@@ -236,7 +245,7 @@
     .about-me{
         display: flex;
         flex-direction: row;
-        gap: 300px;
+        gap: 5rem;
     }
     .profileAndParagraph, .skills {
         flex: 1;  /*This ensures each section takes up half of the available space*/ 
@@ -255,9 +264,15 @@
 
 /* Media query for screens 991px and smaller(width) */
 @media (max-width: 991px) {
-   .connectMe{
-    margin-top: 3rem;
+   .messageMe{
+        margin-top: 3rem;
+   }
+   .profile{
+        display: block;
    } 
+   .profile .info{
+        margin-top: 2rem;
+   }
 }
 
 

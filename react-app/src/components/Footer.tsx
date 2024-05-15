@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 //PascalCasing for component
 function Footer() {
   return (
-    <footer className="py-3 my-4">
+    <footer className="pb-3 mb-4">
       <ul className="nav justify-content-center border-bottom pb-3 mb-3">
         <li className="nav-item">
           <a href="https://www.linkedin.com/in/luis-perez-5941b91a5/" className="nav-link px-2 ">
