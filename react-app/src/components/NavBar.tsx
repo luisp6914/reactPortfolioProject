@@ -41,17 +41,17 @@ function NavBar() {
             </a>
 
             {/*Project Tab */}
-            <a className="nav-link" href="#">
+            <a className="nav-link" href="#projects">
               Projects
             </a>
 
             {/*Resume Tab */}
-            <a className="nav-link" href="#">
+            {/* <a className="nav-link" href="#resume">
               Resume
-            </a>
+            </a> */}
 
             {/*Contact Tab */}
-            <a className="nav-link" href="#">
+            <a className="nav-link" href="#contact">
               Contact
             </a>
           </div>
