@@ -69,7 +69,7 @@
     display: inline-block;
 }
 .paragraph h3::after {
-    content: ''; /* Necessary for the pseudo-element to appear */
+    content: ''; 
     position: absolute; /* Positions relative to the h3 */
     left: 0; /* Starts from the left edge of the h3 */
     bottom: 0; /* Aligns to the bottom of the h3 */

@@ -29,11 +29,11 @@ function Projects(){
 
 
     const projects = [
-        {class: 'covidProject', icon: faHospital, name: 'Covid Project', discription: 'Developed an online system to help a hypothetical local hospital for its COVID vaccination effort. The system will keep track of both patient and vaccine information for the hospital', link: ''},
-        {class: 'pcPartPicker', icon: faComputer, name: 'PC Part Picker', discription: 'Developed an interface where users can select different PC parts from a given list. The price for the selected PC components are then displayed at checkout.', link: ''},
-        {class: 'teslaStockProject', icon: faMoneyBillTrendUp, name: 'Tesla Stocks Project', discription: 'Developed a program that reads and processes historic stock data for the Tesla Company. The data is extracted from a .csv file and then processed to display the information.', link: ''},
-        {class: 'linkedList', icon: faVectorSquare, name: '2D Liked List Project', discription: 'Developed a generic program that accepts an array list of information and turns it into 2D Linked List data structure.', link: ''},
-        {class: 'dijiKeyAPI', icon: faCloud, name: 'DijiKey API', discription: 'Developed an Express.js Server Application. The Server Application interacts with DijiKey API and stores data on a Mongo Atlas Cloud Database.', link: ''}
+        {class: 'covidProject', icon: faHospital, name: 'Covid Project', discription: 'Developed an online system to help a hypothetical local hospital for its COVID vaccination effort. The system will keep track of both patient and vaccine information for the hospital', path: '/covid-project'},
+        {class: 'pcPartPicker', icon: faComputer, name: 'PC Part Picker', discription: 'Developed an interface where users can select different PC parts from a given list. The price for the selected PC components are then displayed at checkout.', path: '/pc-part-picker'},
+        {class: 'teslaStockProject', icon: faMoneyBillTrendUp, name: 'Tesla Stocks Project', discription: 'Developed a program that reads and processes historic stock data for the Tesla Company. The data is extracted from a .csv file and then processed to display the information.', path: '/tesla-stocks-project'},
+        {class: 'linkedList', icon: faVectorSquare, name: '2D Liked List Project', discription: 'Developed a generic program that accepts an array list of information and turns it into 2D Linked List data structure.', path: '/linked-list'},
+        {class: 'dijiKeyAPI', icon: faCloud, name: 'DijiKey API', discription: 'Developed an Express.js Server Application. The Server Application interacts with DijiKey API and stores data on a Mongo Atlas Cloud Database.', path: '/digikey-api'}
     ]
 
     return(
@@ -48,7 +48,7 @@ function Projects(){
                         <div className="card-body">
                             <h3 className="card-title">{project.name}</h3>
                             <p className="card-text">{project.discription}</p>
-                            <a className="btn btn-primary rounded-pill try-it" href={project.link}>Try It</a>
+                            <a className="btn btn-primary rounded-pill try-it" href={project.path}>Try It</a>
                         </div>
                     </div>
                 ))}

@@ -1,33 +1,21 @@
-import NavBar from "./components/NavBar";
-import Home from "./components/Home"
-import About from "./components/About";
-import Projects from "./components/Projects";
-import Resume from "./components/Resume";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
+import { Routes, Route} from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import Covid from "./pages/covidProject/Covid";
+import Patients from "./pages/covidProject/Patients";
+import Vaccine from "./pages/covidProject/Vaccine";
 
 function App() {
   return (
-    <>
-      <div>
-        <NavBar></NavBar>
-      </div>
-      <div id="home">
-        <Home></Home>
-      </div>
-      <div id="about">
-        <About></About>
-      </div>
-      <div id="projects">
-        <Projects></Projects>
-      </div>
-      <div id="contact">
-        <Contact></Contact>
-      </div>
-      <div>
-        <Footer></Footer>
-      </div>
-    </>
+    <Routes>
+      <Route path="/" element={<HomePage/>}/>
+      <Route path="/covid-project" element= {<Covid/>}/>
+      <Route path="/covid-project/patients" element={<Patients/>}/>
+      <Route path="/covid-project/vaccines" element={<Vaccine/>}/>
+      <Route path="/pc-part-picker"/>
+      <Route path="/tesla-stocks-project"/>
+      <Route path="/linked-list"/>
+      <Route path="/digikey-api"/>
+    </Routes>
   );
 }
 
