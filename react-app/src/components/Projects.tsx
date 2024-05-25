@@ -2,6 +2,7 @@ import { faHospital } from '@fortawesome/free-regular-svg-icons';
 import { faCloud, faComputer, faMoneyBillTrendUp, faVectorSquare } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 //PascalCasing for components 
 function Projects(){
     useEffect(() => {
@@ -48,7 +49,7 @@ function Projects(){
                         <div className="card-body">
                             <h3 className="card-title">{project.name}</h3>
                             <p className="card-text">{project.discription}</p>
-                            <a className="btn btn-primary rounded-pill try-it" href={project.path}>Try It</a>
+                            <Link className="btn btn-primary rounded-pill try-it" to={project.path}>Try It</Link>
                         </div>
                     </div>
                 ))}
