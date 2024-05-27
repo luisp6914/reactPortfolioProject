@@ -27,7 +27,7 @@ function NavBar() {
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav">
             {/*Home Tab */}
-            <NavLink className={`nav-link ${activeLink === '#home' ? 'active' : ''}`} aria-current="page" to="/#home" onClick={(e) => handleScroll(e, 'home')}>
+            <NavLink className={`nav-link ${activeLink === '#home' ? 'active' : ''}`}aria-current="page"  to="/#home" onClick={(e) => handleScroll(e, 'home')}>
               Home
             </NavLink>
 

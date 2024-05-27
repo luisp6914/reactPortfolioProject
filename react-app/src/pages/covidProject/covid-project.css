@@ -49,9 +49,26 @@
     height: 56px ; 
 }
 
+/*Widgets section*/
+.widget-largeScreen{
+    display: flex;
+    justify-content: right;
+    gap: 1rem;
+    margin-right: 2rem;
+}
+.add-patient-btn, .add-dose-dtn, .add-vaccine-btn{
+    width: 10rem;
+}
+.widget-mediumScreen{
+    display: none;
+}
+
 /*Laptop Views*/
 @media only screen and (min-width: 992px ) and (max-width: 1199px){
-    
+    /*Widgets section*/
+    .widget-mediumScreen{
+        display: none;
+    }
 }
 
 /*Tablet view*/
@@ -75,6 +92,14 @@
         width: 80% !important;
         height: 1px !important;
     }
+
+    /*Widget section*/
+    .widget-largeScreen{
+        display: none;
+    }
+    .widget-mediumScreen{
+        display: initial;
+    }
 }
 
 /*Mobile Device View*/
@@ -97,5 +122,12 @@
     .divider{
         width: 80% !important;
         height: 1px !important;
+    }
+    /*Widget section*/
+    .widget-largeScreen{
+        display: none;
+    }
+    .widget-mediumScreen{
+        display: initial;
     }
 }
