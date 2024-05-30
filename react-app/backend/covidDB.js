@@ -8,19 +8,21 @@ class MongoDB {
         const {DB_USER, DB_PASSWORD, DB_HOST, DB_NAME} = process.env;
         this.mongoURL = `mongodb+srv://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}?retryWrites=true&w=majority&appName=Cluster0`;
         this.client = new MongoClient(this.mongoURL);
-        this.db;
+        this.db = null;
     }
 
     /**
      * Opens a connection to the MongoDB database
      */
     async connect(){
-        try {
+        if (!this.db) {
+          try {
             await this.client.connect();
             this.db = this.client.db();
-            console.log("Connected to MongoDB\n") 
-        } catch (error) {
-            console.error(error);
+            console.log("Connected to MongoDB\n");
+          } catch (error) {
+            console.error("Error connecting to MongoDB:", error);
+          }
         }
     }
     /**
@@ -29,6 +31,7 @@ class MongoDB {
     async close(){
         try {
             await this.client.close();
+            this.db = null;
             console.log("\nConnection to Mongo DB Closed")
         } catch (error) {
             console.error(error);
@@ -55,16 +58,16 @@ class MongoDB {
     async addPatient(patientData){
         try {
             const collection = this.db.collection("patients");
-            const counteCollection = this.db.collection("patientCounter")
+            const counteCollection = this.db.collection("patientsCounter")
 
             //Getting the next ID value 
             const counter = await counteCollection.findOneAndUpdate(
                 {_id: "patientId"},
-                {$inc: { sequence_value: 1 }},
+                {$inc: { current: 1 }},
                 {returnOriginal: false, upsert: true}
             );
 
-            patientData.id = counter.value.sequence_value;
+            patientData.id = counter.value.current;
 
             const result = await collection.insertOne(patientData);
             return result.ops[0];
@@ -72,7 +75,57 @@ class MongoDB {
             console.error('Error adding patient:', error);
         }
     }
+    /**
+     * Will get the vaccines from mongoDB
+     * @returns Will return an array of all the vaccines available. 
+     */
+    async getVaccines(){
+        try {
+            const vaccines = await this.db.collection("vaccines").find().toArray();
+            return vaccines;
+        } catch (error) {
+            console.error("Error getting vaccines:", error)
+        }
+    }
+    /**
+     * This will insert a new vaccine to the mongoDB
+     * @param {*} newVaccine 
+     * @returns 
+     */
+    async addVaccine(newVaccine){
+        try {
+            //Getting the current count for ID
+            const counter = await this.db.collection("vaccinesCounter").findOneAndUpdate(
+                { id: 'vaccineId' },
+                { $inc: { current: 1 } },
+                { returnOriginal: false, upsert: true }
+            );
+            //adding the updated count id to the vaccine
+            newVaccine.id = counter.value.current;
+            await this.db.collection("vaccines").insertOne(newVaccine);
+            return newVaccine;
+        } catch (error) {
+            console.error("Error adding vaccine:", error);
+        }
+    }
+
+    async addDoses(vaccineId, doses){
+        try {
+            const collection = this.db.collection("vaccines");
+            const result = await collection.findOneAndUpdate(
+                {id: vaccineId},
+                {
+                    $inc: {dosesReceived: doses, dosesRemaining: doses}
+                },
+                {returnOriginal: false}
+            );
+            return result.value;
+        } catch (error) {
+            console.error('Error adding doses:', error);
+        }
+    }
     
 }
-
-export default MongoDB;
+const db = new MongoDB();
+db.connect();
+export default db;

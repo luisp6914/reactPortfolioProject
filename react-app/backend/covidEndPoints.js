@@ -1,30 +1,61 @@
-import MongoDB from "./covidDB";
+import MongoDB from "./covidDB.js";
 import express from "express";
 
 const router = express.Router();
-const db = new MongoDB();
+const db = MongoDB;
 
 router.get("/patients", async (req, res) => {
     try {
-        await db.connect();
+        
         const patients = await db.getPatients();
         res.json(patients);
-        await db.close();
+        
     } catch (error) {
         res.status(500).send("Error Fetching patients")
-    }
+    } 
 });
 
 router.post("/patients", async (req, res) => {
     try {
         const newPatient = req.body;
-        await db.connect();
         const addedPatient = await db.addPatient(newPatient);
         res.status(201).json(addedPatient);
-        await db.close();
+        
     } catch (error) {
         res.status(500).send("Error Adding Patient");
+    } 
+});
+
+router.get("/vaccines", async (req, res) => {
+    try {
+        const vaccines = await db.getVaccines();
+        res.json(vaccines);
+        
+    } catch (error) {
+        res.status(500).send("Error Fetching vaccines")
     }
+});
+
+router.post("/vaccines", async (req, res) => {
+    try {
+        const newVaccine = req.body;
+        const addedVaccine = await db.addVaccine(newVaccine);
+        res.status(201).json(addedVaccine);
+        
+    } catch (error) {
+        res.status(500).send("Error Adding Vaccine");
+    } 
+});
+
+router.post("/vaccines/addDoses", async (req, res) => {
+    try {
+        const {vaccineId, doses} = req.body;
+        const updatedVaccine = await db.addDoses(vaccineId, doses);
+        res.status(201).json(updatedVaccine);
+        
+    } catch (error) {
+        res.status(500).send("Error adding doses");
+    } 
 });
 
 export default router;
