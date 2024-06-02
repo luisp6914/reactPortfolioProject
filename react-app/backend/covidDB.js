@@ -124,6 +124,20 @@ class MongoDB {
             console.error('Error adding doses:', error);
         }
     }
+
+    async updateVaccine(vaccineId, updateData){
+        try {
+            const collection = this.db.collection("vaccine");
+            const result = await collection.findOneAndUpdate(
+                {id: vaccineId},
+                {$set: updateData},
+                {returnOriginal: false}
+            );
+            return result.value;
+        } catch (error) {
+            console.error('Error updating vaccine:', error);
+        }
+    }
     
 }
 const db = new MongoDB();

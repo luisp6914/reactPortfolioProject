@@ -56,20 +56,24 @@
     gap: 1rem;
     margin-right: 2rem;
 }
-.add-patient-btn, .add-dose-btn, .add-vaccine-btn{
+.add-patient-btn, .add-dose-btn, .add-vaccine-btn, .edit-btn{
     width: 10rem;
 }
 .add-dose-btn:hover{
     background-color: rgb(219, 143, 0) !important;
 }
-.widget-mediumScreen{
+.patient-vaccine-table{
+    margin: 4rem;
+    
+}
+.portal-content-mediumScreen{
     display: none;
 }
 
 /*Laptop Views*/
 @media only screen and (min-width: 992px ) and (max-width: 1199px){
     /*Widgets section*/
-    .widget-mediumScreen{
+    .portal-content-mediumScreen{
         display: none;
     }
 }
@@ -97,10 +101,10 @@
     }
 
     /*Widget section*/
-    .widget-largeScreen{
+    .portal-content-largeScreen{
         display: none;
     }
-    .widget-mediumScreen{
+    .portal-content-mediumScreen{
         display: initial;
     }
 }
@@ -127,10 +131,10 @@
         height: 1px !important;
     }
     /*Widget section*/
-    .widget-largeScreen{
+    .portal-content-largeScreen{
         display: none;
     }
-    .widget-mediumScreen{
+    .portal-content-mediumScreen{
         display: initial;
     }
 }

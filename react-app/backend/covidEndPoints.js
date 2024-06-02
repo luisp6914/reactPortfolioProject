@@ -47,15 +47,26 @@ router.post("/vaccines", async (req, res) => {
     } 
 });
 
-router.post("/vaccines/addDoses", async (req, res) => {
+router.post("/vaccines/:id/addDoses", async (req, res) => {
     try {
         const {vaccineId, doses} = req.body;
-        const updatedVaccine = await db.addDoses(vaccineId, doses);
+        const updatedVaccine = await db.addDoses(parseInt(vaccineId), doses);
         res.status(201).json(updatedVaccine);
         
     } catch (error) {
         res.status(500).send("Error adding doses");
     } 
 });
+
+router.put("/vaccines/:id", async (req, res) => {
+    try {
+        const {id} = req.params;
+        const updateData = req.body;
+        const updatedVaccine = await db.updateVaccine(parseInt(id), updateData);
+        res.status(200).json(updatedVaccine);
+    } catch (error) {
+        res.status(500).send("Error Updating Vaccine");
+    }
+})
 
 export default router;

@@ -19,7 +19,7 @@ export const addPatient = async (patientData) => {
     } catch (error) {
         console.error("Failed to add patient", error);
     }
-}
+};
 
 export const getVaccines = async () =>{
     try {
@@ -28,7 +28,7 @@ export const getVaccines = async () =>{
     } catch (error) {
         console.error("Failed to fetch vaccines", error);
     }
-}
+};
 
 export const addVaccine = async (vaccineDate) => {
     try {
@@ -37,7 +37,7 @@ export const addVaccine = async (vaccineDate) => {
     } catch (error) {
         console.error("Failed to add vaccine", error);
     }
-}
+};
 
 export const addDoses = async (vaccineId, doses) => {
     try {
@@ -45,5 +45,14 @@ export const addDoses = async (vaccineId, doses) => {
         return response.data;
     } catch (error) {
         console.error("Failed to add doses", error);
+    }
+};
+
+export const updateVaccine = async (vaccineId, updateData) => {
+    try {
+        const response = await axios.put(`${baseURL}/vaccines/${vaccineId}`, updateData);
+        return response.data;
+    } catch (error) {
+        console.error("Failed to update vaccine", error);
     }
 }
