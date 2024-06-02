@@ -30,7 +30,7 @@ export const getVaccines = async () =>{
     }
 };
 
-export const addVaccine = async (vaccineDate) => {
+export const addVaccine = async (vaccineData) => {
     try {
         const response = await axios.post(`${baseURL}/vaccines`, vaccineData);
         return response.data;

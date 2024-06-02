@@ -40,6 +40,7 @@ router.post("/vaccines", async (req, res) => {
     try {
         const newVaccine = req.body;
         const addedVaccine = await db.addVaccine(newVaccine);
+        console.logO(`Added Vaccine: ${addedVaccine}`);
         res.status(201).json(addedVaccine);
         
     } catch (error) {

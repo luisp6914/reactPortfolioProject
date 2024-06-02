@@ -95,13 +95,16 @@ class MongoDB {
     async addVaccine(newVaccine){
         try {
             //Getting the current count for ID
+            console.log("This is a test")
             const counter = await this.db.collection("vaccinesCounter").findOneAndUpdate(
                 { id: 'vaccineId' },
                 { $inc: { current: 1 } },
                 { returnOriginal: false, upsert: true }
             );
+            console.log(counter.value.current);
             //adding the updated count id to the vaccine
             newVaccine.id = counter.value.current;
+            console.table(newVaccine);
             await this.db.collection("vaccines").insertOne(newVaccine);
             return newVaccine;
         } catch (error) {

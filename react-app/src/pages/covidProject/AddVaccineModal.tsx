@@ -35,7 +35,7 @@ function AddVaccineModal(){
             dosesRemaining: dosesReceivedValue,
             dosesRequired,
         };
-
+        
         try {
             await addVaccine(newVaccine);
             setName(''); 
@@ -112,7 +112,7 @@ function AddVaccineModal(){
                                 {/*Footer of the modal*/}
                                 <div className="modal-footer">
                                     <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="submit" className="btn btn-primary">Add Vaccine</button>
+                                    <button type="submit" className="btn btn-primary " data-bs-dismiss="modal">Add Vaccine</button>
                                 </div>
                             </form>
                         </div>
